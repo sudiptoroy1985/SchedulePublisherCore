@@ -1,0 +1,9 @@
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\bin\Debug\SchedulePublisherDb.dacpac
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\bin\Debug\SchedulePublisherDb.dll
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\bin\Debug\SchedulePublisherDb.pdb
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\obj\Debug\Model.xml
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\obj\Debug\refactor.xml
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\obj\Debug\postdeploy.sql
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\obj\Debug\predeploy.sql
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\obj\Debug\SchedulePublisherDb.dll
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherDb\obj\Debug\SchedulePublisherDb.pdb

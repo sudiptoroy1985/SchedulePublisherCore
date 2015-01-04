@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SchedulerCoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="80" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+    <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endtime" Type="DateTime" Precision="3" />
+    <Property Name="priority" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserSchedules" Relationship="Self.FK_UserSchedule_Schedule" FromRole="Schedule" ToRole="UserSchedule" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="80" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="emailId" Type="String" MaxLength="80" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UserSchedules" Relationship="Self.FK_UserSchedule_User" FromRole="User" ToRole="UserSchedule" />
+  </EntityType>
+  <EntityType Name="UserSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK_UserSchedule_Schedule" FromRole="UserSchedule" ToRole="Schedule" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UserSchedule_User" FromRole="UserSchedule" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_UserSchedule_Schedule">
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+    <End Role="UserSchedule" Type="Self.UserSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSchedule">
+        <PropertyRef Name="ScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSchedule_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserSchedule" Type="Self.UserSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSchedule">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SchedulerCoreEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserSchedules" EntityType="Self.UserSchedule" />
+    <AssociationSet Name="FK_UserSchedule_Schedule" Association="Self.FK_UserSchedule_Schedule">
+      <End Role="Schedule" EntitySet="Schedules" />
+      <End Role="UserSchedule" EntitySet="UserSchedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSchedule_User" Association="Self.FK_UserSchedule_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserSchedule" EntitySet="UserSchedules" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

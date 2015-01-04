@@ -1,0 +1,2 @@
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherServices\bin\Debug\ServiceConfiguration.cscfg
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherServices\bin\Debug\ServiceDefinition.csdef
