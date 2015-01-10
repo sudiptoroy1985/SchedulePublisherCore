@@ -39,11 +39,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.8.0\lib\net45\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -101,6 +110,8 @@
     <Content Include="ServiceLayer\SchedulePublisherService.svc" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Implementation\SchedulePublishingProcessor.cs" />
+    <Compile Include="Business\ISchedulePublishingProcessor.cs" />
     <Compile Include="Contracts\DataContracts\SchedulePublisherDataContracts.cs" />
     <Compile Include="Contracts\ServiceContracts\ISchedulePublisherService.cs" />
     <Compile Include="DataLayer\Schedule.cs">
@@ -121,6 +132,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScheduleCore.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\ContractsToModelMappings.cs" />
+    <Compile Include="Mappings\ModelToEntityMappings.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserSchedule.cs" />
+    <Compile Include="SchedulePublisher\Implementation\FacebookPublisher.cs" />
+    <Compile Include="SchedulePublisher\ISchedulePublisher.cs" />
     <Compile Include="Repository\Implementation\MockedUnitOfWork.cs" />
     <Compile Include="Repository\Implementation\ScheduleCoreUnitOfWork.cs" />
     <Compile Include="Repository\Implementation\DataRepository.cs" />
@@ -140,7 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Business\" />
     <Folder Include="Contracts\FaultContracts\" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +217,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

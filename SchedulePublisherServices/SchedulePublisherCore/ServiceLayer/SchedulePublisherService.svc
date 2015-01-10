@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="SchedulePublisherCore.SchedulePublisherService" CodeBehind="SchedulePublisherService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SchedulePublisherCore.ServiceLayer.SchedulePublisherService" CodeBehind="SchedulePublisherService.svc.cs" %>

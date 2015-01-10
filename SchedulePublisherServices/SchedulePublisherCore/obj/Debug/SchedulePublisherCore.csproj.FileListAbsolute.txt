@@ -1,8 +1,11 @@
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\AutoMapper.Net4.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\SchedulePublisherCore.dll.config
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\SchedulePublisherCore.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\SchedulePublisherCore.pdb
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\AutoMapper.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\EntityFramework.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\EntityFramework.SqlServer.dll
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Facebook.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Microsoft.Data.Edm.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Microsoft.Data.OData.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Microsoft.Data.Services.Client.dll
@@ -12,8 +15,10 @@ D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePub
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Newtonsoft.Json.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\System.Spatial.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\MonAgentListener.dll
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\AutoMapper.xml
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\EntityFramework.xml
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\EntityFramework.SqlServer.xml
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Facebook.xml
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Microsoft.Data.Edm.xml
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Microsoft.Data.OData.xml
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\Microsoft.Data.Services.Client.xml
@@ -59,3 +64,4 @@ D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePub
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\zh-Hant\System.Spatial.resources.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\obj\Debug\SchedulePublisherCore.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\obj\Debug\SchedulePublisherCore.pdb
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\obj\Debug\SchedulePublisherCore.csprojResolveAssemblyReference.cache

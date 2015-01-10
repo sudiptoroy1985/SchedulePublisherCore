@@ -70,6 +70,22 @@ namespace SchedulePublisherCore.Repository.Implementation
         {
             Dispose();
         }
+
+
+        IRepository<UserSchedule> IUnitOfWork.UserScheduleRepository
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        IRepository<Schedule> IUnitOfWork.ScheduleRepository
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        IRepository<User> IUnitOfWork.UserRepository
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 
        
