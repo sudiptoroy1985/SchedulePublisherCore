@@ -9,24 +9,27 @@ namespace SchedulePublisherCore.Contracts.DataContracts
       [DataContract]
         public class Schedule
         {
+            [DataMember]
             public String Name { get; set; }
+          [DataMember]
             public String Description { get; set; }
+          [DataMember]
             public DateTime StartTime { get; set; }
+          [DataMember]
             public DateTime EndTime { get; set; }
+          [DataMember]
             public int Priority { get; set; }
+          [DataMember]
+          public User User { get; set; }
         }
 
-        [DataContract]
-        public class UserSchedule
-        {
-            public User User { get; set; }
-            public List<Schedule> Schedule { get; set; }
-        }
-
+      
         [DataContract]
         public class User
         {
+            [DataMember]
             public String Name { get; set; }
+            [DataMember]
             public String EmailId { get; set; }
         }
 

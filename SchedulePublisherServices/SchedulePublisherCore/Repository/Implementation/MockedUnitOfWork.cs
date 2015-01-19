@@ -13,17 +13,18 @@ namespace SchedulePublisherCore.Repository.Implementation
             
         }
 
-        public IRepository<UserSchedule> UserScheduleRepository
-        {
-            get { throw new NotImplementedException(); }
-        }
-
+      
         public IRepository<Schedule> ScheduleRepository
         {
             get { throw new NotImplementedException(); }
         }
 
         public IRepository<User> UserRepository
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public IRepository<UserSocial> UserSocialRepository
         {
             get { throw new NotImplementedException(); }
         }

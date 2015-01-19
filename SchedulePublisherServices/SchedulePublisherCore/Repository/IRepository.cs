@@ -10,8 +10,8 @@ namespace SchedulePublisherCore.Repository
 {
     public interface IRepository<T> where T:class 
     {
-         List<T> GetAll(Expression<Func<T,bool>> filter=null , string IncludeProperties = null);
-         T GetById(int id, string includeProperties = null);
+         List<T> GetAll(List<Expression<Func<T,bool>>> filter=null , string IncludeProperties = null);
+         T GetById(int userId, string includeProperties = null);
          T Insert(T entity);
          T Update(T entity);
          void delete(T entity);

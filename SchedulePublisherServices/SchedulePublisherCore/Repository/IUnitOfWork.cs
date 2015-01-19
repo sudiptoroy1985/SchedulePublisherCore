@@ -12,8 +12,8 @@ namespace SchedulePublisherCore.Repository
     public interface IUnitOfWork
     {
         void SaveChanges();
-        IRepository<UserSchedule> UserScheduleRepository { get;  }
         IRepository<Schedule> ScheduleRepository { get; }
         IRepository<User> UserRepository { get; }
+        IRepository<UserSocial> UserSocialRepository { get; } 
     }
 }

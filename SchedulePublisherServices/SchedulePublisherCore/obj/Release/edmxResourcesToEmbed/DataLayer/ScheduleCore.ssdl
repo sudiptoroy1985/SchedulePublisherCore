@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SchedulerCoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="80" Nullable="false" />
+    <Property Name="description" Type="nchar" MaxLength="80" />
+    <Property Name="starttime" Type="datetime" Nullable="false" />
+    <Property Name="endtime" Type="datetime" />
+    <Property Name="priority" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="80" Nullable="false" />
+    <Property Name="emailId" Type="nchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="ScheduleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_UserSchedule_Schedule">
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+    <End Role="UserSchedule" Type="Self.UserSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSchedule">
+        <PropertyRef Name="ScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSchedule_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserSchedule" Type="Self.UserSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSchedule">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SchedulerCoreModelStoreContainer">
+    <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSchedule" EntityType="Self.UserSchedule" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_UserSchedule_Schedule" Association="Self.FK_UserSchedule_Schedule">
+      <End Role="Schedule" EntitySet="Schedule" />
+      <End Role="UserSchedule" EntitySet="UserSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSchedule_User" Association="Self.FK_UserSchedule_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserSchedule" EntitySet="UserSchedule" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

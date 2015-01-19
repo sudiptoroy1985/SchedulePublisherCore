@@ -14,18 +14,14 @@ namespace SchedulePublisherCore.DataLayer
     
     public partial class Schedule
     {
-        public Schedule()
-        {
-            this.UserSchedules = new HashSet<UserSchedule>();
-        }
-    
         public int Id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public System.DateTime starttime { get; set; }
         public Nullable<System.DateTime> endtime { get; set; }
         public int priority { get; set; }
+        public int UserId { get; set; }
     
-        public virtual ICollection<UserSchedule> UserSchedules { get; set; }
+        public virtual User User { get; set; }
     }
 }

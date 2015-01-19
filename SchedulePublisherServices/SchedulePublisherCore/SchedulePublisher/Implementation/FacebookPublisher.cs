@@ -12,7 +12,7 @@ namespace SchedulePublisherCore.SchedulePublisher.Implementation
         public bool Publish(Schedule schedule)
         {
             FacebookClient client = new FacebookClient();
-            
+            client.Post("Test");
             return true;
         }
     }

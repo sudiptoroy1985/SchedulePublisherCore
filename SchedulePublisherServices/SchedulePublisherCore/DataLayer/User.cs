@@ -16,13 +16,15 @@ namespace SchedulePublisherCore.DataLayer
     {
         public User()
         {
-            this.UserSchedules = new HashSet<UserSchedule>();
+            this.Schedules = new HashSet<Schedule>();
+            this.UserSocials = new HashSet<UserSocial>();
         }
     
         public int Id { get; set; }
         public string name { get; set; }
         public string emailId { get; set; }
     
-        public virtual ICollection<UserSchedule> UserSchedules { get; set; }
+        public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual ICollection<UserSocial> UserSocials { get; set; }
     }
 }

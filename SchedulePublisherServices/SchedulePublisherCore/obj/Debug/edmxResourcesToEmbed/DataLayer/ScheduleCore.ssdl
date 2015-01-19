@@ -4,64 +4,66 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nchar" MaxLength="80" Nullable="false" />
     <Property Name="description" Type="nchar" MaxLength="80" />
     <Property Name="starttime" Type="datetime" Nullable="false" />
     <Property Name="endtime" Type="datetime" />
     <Property Name="priority" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nchar" MaxLength="80" Nullable="false" />
     <Property Name="emailId" Type="nchar" MaxLength="80" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserSchedule">
+  <EntityType Name="UserSocial">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="ScheduleId" Type="int" Nullable="false" />
+    <Property Name="Userid" Type="int" Nullable="false" />
+    <Property Name="SocialId" Type="int" Nullable="false" />
+    <Property Name="SocialAccount" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="FK_UserSchedule_Schedule">
-    <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
-    <End Role="UserSchedule" Type="Self.UserSchedule" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Schedule">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserSchedule">
-        <PropertyRef Name="ScheduleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserSchedule_User">
+  <Association Name="FK_Schedule_ToUser">
     <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="UserSchedule" Type="Self.UserSchedule" Multiplicity="*" />
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserSchedule">
+      <Dependent Role="Schedule">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSocial_ToUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserSocial" Type="Self.UserSocial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSocial">
+        <PropertyRef Name="Userid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="SchedulerCoreModelStoreContainer">
     <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserSchedule" EntityType="Self.UserSchedule" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_UserSchedule_Schedule" Association="Self.FK_UserSchedule_Schedule">
-      <End Role="Schedule" EntitySet="Schedule" />
-      <End Role="UserSchedule" EntitySet="UserSchedule" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserSchedule_User" Association="Self.FK_UserSchedule_User">
+    <EntitySet Name="UserSocial" EntityType="Self.UserSocial" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Schedule_ToUser" Association="Self.FK_Schedule_ToUser">
       <End Role="User" EntitySet="User" />
-      <End Role="UserSchedule" EntitySet="UserSchedule" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSocial_ToUser" Association="Self.FK_UserSocial_ToUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserSocial" EntitySet="UserSocial" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

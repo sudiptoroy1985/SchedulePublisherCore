@@ -1,4 +1,3 @@
-D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\obj\Debug\ScheduleCoreTests.csprojResolveAssemblyReference.cache
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\bin\Debug\AutoMapper.Net4.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\bin\Debug\ScheduleCoreTests.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\bin\Debug\ScheduleCoreTests.pdb
@@ -10,5 +9,6 @@ D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCor
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\bin\Debug\AutoMapper.xml
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\bin\Debug\EntityFramework.xml
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\bin\Debug\Facebook.xml
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\obj\Debug\ScheduleCoreTests.csprojResolveAssemblyReference.cache
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\obj\Debug\ScheduleCoreTests.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\ScheduleCoreTests\obj\Debug\ScheduleCoreTests.pdb

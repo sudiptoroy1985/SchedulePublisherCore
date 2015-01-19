@@ -25,13 +25,17 @@ namespace SchedulePublisherCore.Repository.Implementation
         }
 
 
-        public List<T> GetAll(System.Linq.Expressions.Expression<Func<T, bool>> filter = null , string includeOptions = null)
+        public List<T> GetAll(List<System.Linq.Expressions.Expression<Func<T, bool>>> filter = null , string includeOptions = null)
         {
             IQueryable<T> query =  Entity;
 
-            if(filter != null)
+            if((filter != null) && filter.Any())
             {
-                 query = Entity.Where(filter);
+                foreach (var filterExpression in filter)
+                {
+                    query = Entity.Where(filterExpression);
+                }
+                 
             }
 
             if(!string.IsNullOrEmpty(includeOptions))
@@ -39,7 +43,9 @@ namespace SchedulePublisherCore.Repository.Implementation
                 query = includeOptions.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
             }
 
-            return query.ToList();
+            var result = query.ToList();
+
+            return result;
         }
 
         public T GetById(int id, string includeProperties = null)
@@ -49,12 +55,15 @@ namespace SchedulePublisherCore.Repository.Implementation
 
         public T Insert(T entity)
         {
-            throw new NotImplementedException();
+            Entity.Add(entity);
+            return entity;
         }
 
         public T Update(T entity)
         {
-            throw new NotImplementedException();
+            var entityToUpdate = Entity.Find(entity);
+            Context.Entry(entityToUpdate).CurrentValues.SetValues(entity);
+            return entity;
         }
 
         public void delete(T entity)

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RoleModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SchedulePublisherCore" version="2.5.6496.10" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <Startup>
+    <Task commandLine="RemoteAccessAgent.exe" executionContext="elevated" taskType="background" relativePath="plugins\RemoteAccess">
+      <Environment>
+        <Variable name="RdModuleName" value="RemoteAccess" />
+        <Variable name="WaRoleType" value="IISWebRole" />
+      </Environment>
+    </Task>
+    <Task commandLine="RemoteAccessAgent.exe /blockStartup" executionContext="elevated" relativePath="plugins\RemoteAccess">
+      <Environment>
+        <Variable name="RdModuleName" value="RemoteAccess" />
+        <Variable name="WaRoleType" value="IISWebRole" />
+      </Environment>
+    </Task>
+    <Task commandLine="install.cmd" executionContext="elevated" relativePath="plugins\RemoteForwarder">
+      <Environment>
+        <Variable name="IsEmulated">
+          <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+        </Variable>
+        <Variable name="RdModuleName" value="RemoteForwarder" />
+        <Variable name="WaRoleType" value="IISWebRole" />
+      </Environment>
+    </Task>
+    <Task commandLine="WindowsAzureDiagnosticsStartup.exe Profiling Sampling" executionContext="elevated" relativePath="plugins\Profiling">
+      <Environment>
+        <Variable name="RdModuleName" value="Profiling" />
+        <Variable name="WaRoleType" value="IISWebRole" />
+      </Environment>
+    </Task>
+    <Task commandLine="WindowsAzureDiagnosticsAgent.exe Profiling Sampling" executionContext="elevated" taskType="foreground" relativePath="plugins\Profiling">
+      <Environment>
+        <Variable name="RdModuleName" value="Profiling" />
+        <Variable name="WaRoleType" value="IISWebRole" />
+      </Environment>
+    </Task>
+  </Startup>
+  <Runtime>
+    <Environment>
+      <Variable name="_AZURE_INTELLITRACE_ENABLED_" value="1" />
+      <Variable name="COR_ENABLE_PROFILING" value="1" />
+      <Variable name="VSTS_PROFILER_NOT_CLEAR_ENVVARS" value="1" />
+      <Variable name="COR_PROFILER" value="{2CCFACEE-5E60-4734-8A98-181D93097CD9}" />
+      <Variable name="COR_LINE_PROFILING" value="1" />
+    </Environment>
+    <EntryPoint>
+      <NetFxEntryPoint assemblyName="SchedulePublisherCore.dll" targetFrameworkVersion="v4.0" />
+    </EntryPoint>
+  </Runtime>
+  <ConfigurationSettings>
+    <Setting name="ProfilingConnectionString" nameSpace="Profiling" />
+    <Setting name="Enabled" nameSpace="Microsoft.WindowsAzure.Plugins.RemoteAccess" />
+    <Setting name="AccountUsername" nameSpace="Microsoft.WindowsAzure.Plugins.RemoteAccess" />
+    <Setting name="AccountEncryptedPassword" nameSpace="Microsoft.WindowsAzure.Plugins.RemoteAccess" />
+    <Setting name="AccountExpiration" nameSpace="Microsoft.WindowsAzure.Plugins.RemoteAccess" />
+    <Setting name="Enabled" nameSpace="Microsoft.WindowsAzure.Plugins.RemoteForwarder" />
+  </ConfigurationSettings>
+  <Properties>
+    <Property name="TargetFrameworkVersion" value="v4.5" />
+    <Property name="RoleType" value="Web" />
+    <Property name="RoleName" value="SchedulePublisherCore" />
+    <Property name="ProjectName" value="SchedulePublisherCore" />
+    <Property name="Configuration" value="Release" />
+    <Property name="Platform" value="AnyCPU" />
+    <Property name="SetConfiguration" value="Configuration=Release" />
+    <Property name="SetPlatform" value="Platform=AnyCPU" />
+    <Property name="RoleTargetFramework" value="v4.5" />
+    <Property name="OutputDir" value="D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherServices\obj\Release\SchedulePublisherCore\" />
+    <Property name="EntryPoint" value="SchedulePublisherCore.dll" />
+    <Property name="SourceDir" value="D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\" />
+    <Property name="SitePhysicalPath" value="D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherServices\obj\Release\SchedulePublisherCore\" />
+    <Property name="RolePlugins" value="D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherServices\obj\\Release\Profiling" />
+    <Property name="TargetRuntimeVersion" value="v4.0" />
+  </Properties>
+  <Sites>
+    <Site name="Web" physicalDirectory="D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherServices\obj\Release\SchedulePublisherCore\">
+      <Bindings>
+        <Binding name="Endpoint1" endpointName="Endpoint1" />
+      </Bindings>
+    </Site>
+  </Sites>
+</RoleModel>

@@ -27,6 +27,6 @@ namespace SchedulePublisherCore.DataLayer
     
         public virtual DbSet<Schedule> Schedules { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserSchedule> UserSchedules { get; set; }
+        public virtual DbSet<UserSocial> UserSocials { get; set; }
     }
 }

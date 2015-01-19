@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Schedules">
       <EntityTypeMapping TypeName="SchedulerCoreModel.Schedule">
         <MappingFragment StoreEntitySet="Schedule">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="description" ColumnName="description" />
@@ -22,12 +23,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserSchedules">
-      <EntityTypeMapping TypeName="SchedulerCoreModel.UserSchedule">
-        <MappingFragment StoreEntitySet="UserSchedule">
+    <EntitySetMapping Name="UserSocials">
+      <EntityTypeMapping TypeName="SchedulerCoreModel.UserSocial">
+        <MappingFragment StoreEntitySet="UserSocial">
+          <ScalarProperty Name="SocialAccount" ColumnName="SocialAccount" />
+          <ScalarProperty Name="SocialId" ColumnName="SocialId" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

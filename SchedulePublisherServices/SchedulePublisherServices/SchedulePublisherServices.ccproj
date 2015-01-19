@@ -12,6 +12,7 @@
     <AssemblyName>SchedulePublisherServices</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
     <Name>SchedulePublisherServices</Name>
+    <PackageEnableRemoteDebugger>False</PackageEnableRemoteDebugger>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,10 +48,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Profiles" />
     <Folder Include="SchedulePublisherCoreContent\" />
   </ItemGroup>
   <ItemGroup>
     <DiagnosticsConfiguration Include="SchedulePublisherCoreContent\diagnostics.wadcfgx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\ScheduleCoreServicesStaging.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

@@ -8,9 +8,9 @@ namespace SchedulePublisherCore.Repository.Implementation
     public class ScheduleCoreUnitOfWork : IUnitOfWork , IDisposable
     {
         private readonly SchedulerCoreEntities _context = new SchedulerCoreEntities();
-        private DataRepository<UserSchedule> _userScheduleRepository;
         private DataRepository<Schedule> _scheduleRepository;
         private DataRepository<User> _userRepository;
+        private DataRepository<UserSocial> _userSocialRepository;
 
         
        
@@ -27,19 +27,9 @@ namespace SchedulePublisherCore.Repository.Implementation
         }
 
 
-        public DataRepository<UserSchedule> UserScheduleRepository
-        {
-            get
-            {
-                if (_userScheduleRepository == null)
-                {
-                    _userScheduleRepository = new DataRepository<UserSchedule>(_context);
-                }
-                return _userScheduleRepository;
-            }
-        }
+      
 
-        public DataRepository<Schedule> ScheduleRepository
+        public IRepository<Schedule> ScheduleRepository
         {
             get
             {
@@ -52,7 +42,7 @@ namespace SchedulePublisherCore.Repository.Implementation
             }
         }
 
-        public DataRepository<User> UserRepository
+        public IRepository<User> UserRepository
         {
             get
             {
@@ -65,6 +55,19 @@ namespace SchedulePublisherCore.Repository.Implementation
             }
         }
 
+        public IRepository<UserSocial> UserSocialRepository
+        {
+            get
+            {
+                if (_userSocialRepository == null)
+                {
+                    _userSocialRepository = new DataRepository<UserSocial>(_context);
+                }
+
+                return _userSocialRepository;
+            }
+        }
+
 
         public void Dispose()
         {
@@ -72,20 +75,20 @@ namespace SchedulePublisherCore.Repository.Implementation
         }
 
 
-        IRepository<UserSchedule> IUnitOfWork.UserScheduleRepository
-        {
-            get { throw new NotImplementedException(); }
-        }
+        //IRepository<UserSchedule> IUnitOfWork.UserScheduleRepository
+        //{
+        //    get { throw new NotImplementedException(); }
+        //}
 
-        IRepository<Schedule> IUnitOfWork.ScheduleRepository
-        {
-            get { throw new NotImplementedException(); }
-        }
+        //IRepository<Schedule> IUnitOfWork.ScheduleRepository
+        //{
+        //    get { throw new NotImplementedException(); }
+        //}
 
-        IRepository<User> IUnitOfWork.UserRepository
-        {
-            get { throw new NotImplementedException(); }
-        }
+        //IRepository<User> IUnitOfWork.UserRepository
+        //{
+        //    get { throw new NotImplementedException(); }
+        //}
     }
 
        

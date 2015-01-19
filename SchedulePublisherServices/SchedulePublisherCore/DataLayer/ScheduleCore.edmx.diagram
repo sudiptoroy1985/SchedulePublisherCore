@@ -7,9 +7,9 @@
       <Diagram DiagramId="eefa02d9c26c40ce9c0ec20e04d2a9a2" Name="Diagram1">
         <EntityTypeShape EntityType="SchedulerCoreModel.Schedule" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SchedulerCoreModel.User" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchedulerCoreModel.UserSchedule" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="SchedulerCoreModel.FK_UserSchedule_Schedule" ManuallyRouted="false" />
-        <AssociationConnector Association="SchedulerCoreModel.FK_UserSchedule_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SchedulerCoreModel.UserSocial" Width="1.5" PointX="3" PointY="5.375" />
+        <AssociationConnector Association="SchedulerCoreModel.FK_Schedule_ToUser" />
+        <AssociationConnector Association="SchedulerCoreModel.FK_UserSocial_ToUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
