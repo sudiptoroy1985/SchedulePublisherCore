@@ -30,7 +30,7 @@ namespace SchedulePublisherCore.ServiceLayer
             return userSchedules;
         }
 
-        public void CreateUser(User user)
+        public void CreateUser(string user)
         {
             if (user != null)
             {
@@ -38,12 +38,12 @@ namespace SchedulePublisherCore.ServiceLayer
             }
         }
 
-        public void CreateSchedules(Schedule userSchedule)
+        public void CreateSchedules(string schedule)
         {
             throw new NotImplementedException();
         }
 
-        public void PublishSchedules(Schedule userSchedule, List<Publisher> publishTo)
+        public void PublishSchedules(string schedule, List<Publisher> publishTo)
         {
             throw new NotImplementedException();
         }

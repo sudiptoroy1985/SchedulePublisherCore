@@ -64,3 +64,4 @@ D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePub
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\bin\zh-Hant\System.Spatial.resources.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\obj\Debug\SchedulePublisherCore.dll
 D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\obj\Debug\SchedulePublisherCore.pdb
+D:\MobileAppDev\SchedulerApp\SchedulerCore\SchedulePublisherServices\SchedulePublisherCore\obj\Debug\SchedulePublisherCore.csprojResolveAssemblyReference.cache

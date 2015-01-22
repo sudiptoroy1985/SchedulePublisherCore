@@ -8,12 +8,9 @@ namespace SchedulePublisherCore.Repository.Implementation
     public class ScheduleCoreUnitOfWork : IUnitOfWork , IDisposable
     {
         private readonly SchedulerCoreEntities _context = new SchedulerCoreEntities();
-        private DataRepository<Schedule> _scheduleRepository;
-        private DataRepository<User> _userRepository;
-        private DataRepository<UserSocial> _userSocialRepository;
-
-        
        
+       
+
         public void SaveChanges()
         {
             if (!_context.GetValidationErrors().Any())
@@ -26,48 +23,20 @@ namespace SchedulePublisherCore.Repository.Implementation
             }
         }
 
-
-      
-
         public IRepository<Schedule> ScheduleRepository
         {
-            get
-            {
-                if (_scheduleRepository == null)
-                {
-                    _scheduleRepository = new DataRepository<Schedule>(_context);
-                }
-
-                return _scheduleRepository;
-            }
+            get { return new ScheduleRepository(); }
         }
 
         public IRepository<User> UserRepository
         {
-            get
-            {
-                if (_userRepository == null)
-                {
-                    _userRepository = new DataRepository<User>(_context);
-                }
-
-                return _userRepository;
-            }
+            get { return new UserRepository();}
         }
 
         public IRepository<UserSocial> UserSocialRepository
         {
-            get
-            {
-                if (_userSocialRepository == null)
-                {
-                    _userSocialRepository = new DataRepository<UserSocial>(_context);
-                }
-
-                return _userSocialRepository;
-            }
+            get { return  new UserSocialRepository();}
         }
-
 
         public void Dispose()
         {

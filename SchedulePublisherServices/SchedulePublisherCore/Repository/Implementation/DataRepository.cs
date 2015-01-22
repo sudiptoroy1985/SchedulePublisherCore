@@ -7,33 +7,27 @@ using System.Web;
 
 namespace SchedulePublisherCore.Repository.Implementation
 {
-    public class DataRepository<T> : IRepository<T> where T:class
+    public abstract class DataRepository<TC,T> : IRepository<T> where TC:DbContext, new() where T:class
     {
-        internal SchedulerCoreEntities Context;
-        internal readonly DbSet<T> Entity;
+        private TC _context = new TC();
 
-        public DataRepository()
+        public TC Context
         {
-            Context = new SchedulerCoreEntities();
-            Entity = Context.Set<T>();
+            get { return _context;}
+            set { _context = value; }
         }
 
-        public DataRepository(SchedulerCoreEntities context)
+        
+       
+        public virtual List<T> GetAll(List<System.Linq.Expressions.Expression<Func<T, bool>>> filter = null , string includeOptions = null)
         {
-            Context = context;
-            Entity = Context.Set<T>();
-        }
-
-
-        public List<T> GetAll(List<System.Linq.Expressions.Expression<Func<T, bool>>> filter = null , string includeOptions = null)
-        {
-            IQueryable<T> query =  Entity;
+            IQueryable<T> query =  _context.Set<T>();
 
             if((filter != null) && filter.Any())
             {
                 foreach (var filterExpression in filter)
                 {
-                    query = Entity.Where(filterExpression);
+                    query = query.Where(filterExpression);
                 }
                  
             }
@@ -48,34 +42,43 @@ namespace SchedulePublisherCore.Repository.Implementation
             return result;
         }
 
-        public T GetById(int id, string includeProperties = null)
+        public virtual T GetById(int id, string includeProperties = null)
         {
-            return Entity.Find(id);
+            return _context.Set<T>().Find(id);
         }
 
-        public T Insert(T entity)
+        public virtual T Insert(T entity)
         {
-            Entity.Add(entity);
+            _context.Set<T>().Add(entity);
             return entity;
         }
 
-        public T Update(T entity)
+        public virtual T Update(T entity)
         {
-            var entityToUpdate = Entity.Find(entity);
+            var entityToUpdate = _context.Set<T>().Find(entity);
             Context.Entry(entityToUpdate).CurrentValues.SetValues(entity);
             return entity;
         }
 
-        public void delete(T entity)
+        public virtual void delete(T entity)
         {
             throw new NotImplementedException();
         }
+    }
 
+
+    public class ScheduleRepository : DataRepository<SchedulerCoreEntities, Schedule> 
+    {
         
+    }
 
+    public class UserRepository : DataRepository<SchedulerCoreEntities, User>
+    {
 
+    }
 
+    public class UserSocialRepository : DataRepository<SchedulerCoreEntities, UserSocial>
+    {
 
-       
     }
 }

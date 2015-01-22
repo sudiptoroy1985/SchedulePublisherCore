@@ -19,15 +19,15 @@ namespace SchedulePublisherCore.Contracts.ServiceContracts
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "CreateUser/{user}")]
-        void CreateUser(User user);
+        void CreateUser(string user);
 
         [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "Create/UserSchedule")]
-        void CreateSchedules(Schedule userSchedule);
+        [WebInvoke(Method = "POST", UriTemplate = "Create/{schedule}")]
+        void CreateSchedules(string schedule);
 
         [OperationContract]
-        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped ,Method = "POST", UriTemplate = "Publish/UserSchedule")]
-        void PublishSchedules(Schedule userSchedule, List<Publisher> publishTo);
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST", UriTemplate = "Publish/{schedule}")]
+        void PublishSchedules(string userSchedule, List<Publisher> publishTo);
 
     }
 }
